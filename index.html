@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0d12" />
+  <meta name="description" content="Xie Xiangcheng / Xik Pai — Computer Science undergraduate focused on AI applications, product thinking and software projects." />
+  <meta property="og:title" content="Xik Pai · Portfolio" />
+  <meta property="og:description" content="AI Applications · Product Thinking · Software" />
+  <meta property="og:type" content="website" />
+  <title>Xik Pai · Portfolio</title>
+  <style>
+    :root{
+      --bg:#0b0d12;
+      --panel:#11141b;
+      --panel-2:#0f1218;
+      --text:#f3f0e8;
+      --muted:#9aa2b1;
+      --line:rgba(243,240,232,.12);
+      --line-strong:rgba(243,240,232,.24);
+      --accent:#ff8067;
+      --blue:#8db5ff;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 82% 8%,rgba(141,181,255,.10),transparent 28rem),
+        radial-gradient(circle at 8% 26%,rgba(255,128,103,.07),transparent 24rem),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter,"SF Pro Display","SF Pro Text","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.65;
+    }
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.24;
+      background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size:48px 48px;mask-image:linear-gradient(to bottom,#000,transparent 78%);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:0 auto}
+    nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);background:rgba(11,13,18,.74);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.05em}
+    .orbit{width:30px;height:30px;border:1px solid var(--line-strong);border-radius:50%;display:grid;place-items:center;font-size:10px;color:var(--accent);position:relative}
+    .orbit::after{content:"";position:absolute;width:42px;height:10px;border:1px solid rgba(141,181,255,.38);border-radius:50%;transform:rotate(-22deg)}
+    .nav-links{display:flex;gap:24px;color:var(--muted);font-size:13px}
+    .nav-links a{transition:.2s}.nav-links a:hover{color:var(--text)}
+
+    .hero{min-height:calc(100vh - 68px);display:grid;align-items:center;padding:84px 0 72px}
+    .eyebrow{display:flex;align-items:center;gap:10px;color:var(--blue);font-size:12px;letter-spacing:.17em;text-transform:uppercase;margin-bottom:24px}
+    .eyebrow::before{content:"";width:34px;height:1px;background:var(--blue)}
+    h1{margin:0;max-width:950px;font-size:clamp(52px,8vw,108px);line-height:.94;letter-spacing:-.055em;font-weight:720}
+    h1 .soft{color:#7f8694;font-weight:520}
+    .hero-copy{max-width:720px;margin:32px 0 0;font-size:clamp(18px,2.05vw,24px);line-height:1.58;color:#c4c8d0}
+    .hero-copy strong{color:var(--text);font-weight:600}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+    .btn{display:inline-flex;align-items:center;gap:9px;min-height:46px;padding:0 18px;border:1px solid var(--line-strong);border-radius:999px;font-size:13px;background:rgba(255,255,255,.02);transition:.22s ease}
+    .btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.42);background:rgba(255,255,255,.06)}
+    .btn.primary{background:var(--text);color:#11131a;border-color:var(--text);font-weight:650}.btn.primary:hover{background:white}
+    .facts{margin-top:70px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .fact{padding:20px 22px 20px 0;border-right:1px solid var(--line)}.fact+.fact{padding-left:22px}.fact:last-child{border-right:0}
+    .fact strong{display:block;font-size:22px;letter-spacing:-.02em}.fact span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+
+    section{padding:112px 0;border-top:1px solid rgba(255,255,255,.045)}
+    .section-head{display:grid;grid-template-columns:180px 1fr;gap:50px;margin-bottom:52px}
+    .section-index{color:var(--muted);font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding-top:8px}
+    h2{margin:0;max-width:800px;font-size:clamp(34px,4.7vw,58px);line-height:1.08;letter-spacing:-.035em;font-weight:650}
+    .section-sub{max-width:680px;margin-top:18px;color:var(--muted);font-size:16px}
+
+    .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .principle{min-height:250px;padding:28px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,rgba(255,255,255,.026),rgba(255,255,255,.012))}
+    .principle-no{font-size:11px;letter-spacing:.14em;color:var(--accent);margin-bottom:52px}
+    .principle h3{font-size:22px;letter-spacing:-.02em;margin:0 0 12px}.principle p{margin:0;color:var(--muted);font-size:14px}
+
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .project{min-height:410px;padding:30px;border:1px solid var(--line);border-radius:26px;background:var(--panel-2);position:relative;overflow:hidden;display:flex;flex-direction:column;transition:.25s ease}
+    .project:hover{transform:translateY(-4px);border-color:var(--line-strong);background:#12151d}
+    .project::after{content:"";position:absolute;width:260px;height:260px;border:1px solid rgba(255,255,255,.065);border-radius:50%;right:-100px;top:-110px}
+    .project.featured{grid-column:1/-1;min-height:465px;background:linear-gradient(125deg,#12151d 45%,rgba(255,128,103,.065))}
+    .project-top{display:flex;justify-content:space-between;gap:20px;position:relative;z-index:1}.tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}.year{font-size:12px;color:#6e7583}
+    .project h3{position:relative;z-index:1;font-size:34px;line-height:1.08;letter-spacing:-.04em;margin:48px 0 14px}.project.featured h3{font-size:clamp(42px,5vw,66px);max-width:760px}
+    .project p{position:relative;z-index:1;margin:0;max-width:540px;color:#aeb4c0;font-size:15px}.project.featured p{max-width:760px;font-size:17px}
+    .chips{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:34px}.chip{padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:#aeb4c0;font-size:11px}
+    .project-links{position:relative;z-index:1;display:flex;gap:18px;margin-top:22px;font-size:12px}.project-links a{border-bottom:1px solid #505664;padding-bottom:2px}.project-links a:hover{border-color:var(--accent)}
+
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+    .card{padding:30px;border:1px solid var(--line);border-radius:24px;background:var(--panel-2)}
+    .card-label{margin:0 0 24px;color:var(--muted);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+    .school{font-size:30px;letter-spacing:-.025em;margin-bottom:5px}.meta{color:var(--muted);font-size:14px}
+    .rule{height:1px;background:var(--line);margin:28px 0}
+    .mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{padding:16px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.015)}.mini strong{display:block;font-size:19px}.mini span{display:block;margin-top:3px;color:var(--muted);font-size:12px}
+    .skills{display:flex;flex-wrap:wrap;gap:10px}.skill{padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03);font-size:12px;color:#c5c9d1}
+    .note{margin:25px 0 0;color:var(--muted);font-size:14px}
+
+    .contact{padding:62px;border:1px solid var(--line);border-radius:30px;background:radial-gradient(circle at 88% 20%,rgba(141,181,255,.11),transparent 260px),radial-gradient(circle at 12% 100%,rgba(255,128,103,.08),transparent 250px),#10131a}
+    .contact p{max-width:650px;margin:22px 0 32px;color:var(--muted);font-size:16px}
+    footer{padding:38px 0 54px;color:#6f7683;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:24px;border-top:1px solid var(--line);padding-top:26px}
+
+    @media(max-width:900px){.section-head{grid-template-columns:1fr;gap:12px}.principles,.projects,.about-grid{grid-template-columns:1fr}.project.featured{grid-column:auto}.principle{min-height:auto}.principle-no{margin-bottom:34px}}
+    @media(max-width:640px){.wrap{width:min(calc(100% - 28px),var(--max))}.nav-links a:not(:last-child){display:none}.hero{padding-top:64px}h1{font-size:clamp(48px,18vw,76px)}.facts{grid-template-columns:1fr}.fact,.fact+.fact{padding:15px 0;border-right:0;border-bottom:1px solid var(--line)}.fact:last-child{border-bottom:0}section{padding:82px 0}.project{min-height:380px;padding:24px}.project h3{margin-top:40px}.mini-grid{grid-template-columns:1fr}.contact{padding:34px 24px}.footer-inner{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Home"><span class="orbit">XP</span><span>XIK PAI</span></a>
+      <div class="nav-links"><a href="#work">作品</a><a href="#about">关于</a><a href="https://github.com/WJSGZZ" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <div class="eyebrow">Computer Science · AI Applications</div>
+        <h1>把想法做成<br><span class="soft">可以使用的东西。</span></h1>
+        <p class="hero-copy">我是 <strong>谢享成 / Xik Pai</strong>，计算机科学本科生。我更关心 AI 如何进入真实的软件、工作流与用户体验，而不只是停留在一次对话里。</p>
+        <div class="cta">
+          <a class="btn primary" href="#work">查看作品 <span>↓</span></a>
+          <a class="btn" href="https://github.com/WJSGZZ" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>2027</strong><span>预计本科毕业 · Nantong University</span></div>
+          <div class="fact"><strong>AI × Product</strong><span>关注应用、交互与可维护系统</span></div>
+          <div class="fact"><strong>Build & Iterate</strong><span>从需求拆分到持续迭代与交付</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head"><div class="section-index">01 · Approach</div><div><h2>我希望 AI 不只是“会回答”，而是能成为产品的一部分。</h2><p class="section-sub">比起追逐模型名词，我更在意三个问题：它解决什么问题、如何被人真正使用，以及系统能不能继续维护和迭代。</p></div></div>
+        <div class="principles">
+          <article class="principle"><div class="principle-no">01 / USEFUL</div><h3>先解决真实问题</h3><p>从使用场景出发，把复杂需求拆成可实现、可验证的功能，而不是为了展示技术而堆功能。</p></article>
+          <article class="principle"><div class="principle-no">02 / SYSTEM</div><h3>把对话变成系统</h3><p>关注状态、规则、信息结构、边界和失败路径，让 AI 能够进入长期工作流，而不是一次性生成结果。</p></article>
+          <article class="principle"><div class="principle-no">03 / ITERATE</div><h3>持续迭代</h3><p>先做出可用版本，再根据问题不断调整。版本、文档、反馈和维护，本身就是产品的一部分。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head"><div class="section-index">02 · Selected Work</div><div><h2>少一些项目清单，多一些真正做过的东西。</h2><p class="section-sub">这里只保留我愿意拿出来代表自己的作品。课程练习和零散实验没有被塞进来。</p></div></div>
+        <div class="projects">
+          <article class="project featured">
+            <div class="project-top"><span class="tag">Independent Product</span><span class="year">2026</span></div>
+            <h3>PBlossom</h3>
+            <p>一个从个人需求出发持续迭代到 v2.6 的多端应用，覆盖 Web、微信小程序与本地使用。项目包含功能拆分、复杂计算逻辑、时间修正、本地历史、FAQ 与使用文档，也让我真正经历了“做出来—发现问题—继续改”的完整过程。</p>
+            <div class="chips"><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">HTML / CSS</span><span class="chip">Multi-platform</span><span class="chip">AI-assisted Development</span></div>
+            <div class="project-links"><a href="https://github.com/WJSGZZ/PBlossom" target="_blank" rel="noreferrer">Repository ↗</a><a href="https://pblossom.onrender.com/" target="_blank" rel="noreferrer">Web Demo ↗</a></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><span class="tag">Campus App</span><span class="year">2026</span></div>
+            <h3>TimeFlow</h3>
+            <p>面向南通大学教务场景设计的 Android 课程表应用。无需注册、本地存储，支持课程导入、桌面小组件、课前通知以及冬夏作息切换。它更像一个真正会被学生每天打开的小工具，而不是课程作业。</p>
+            <div class="chips"><span class="chip">Android</span><span class="chip">Local-first</span><span class="chip">Widget</span><span class="chip">UX</span></div>
+            <div class="project-links"><a href="https://github.com/WJSGZZ/TimeFlow" target="_blank" rel="noreferrer">Repository ↗</a></div>
+          </article>
+
+          <article class="project">
+            <div class="project-top"><span class="tag">AI Interaction Protocol</span><span class="year">2026</span></div>
+            <h3>MayoSocratic</h3>
+            <p>一个围绕“先问、再判断”的 AI 对话协议实验。通过阶段化流程、显式状态、信息不足时的限制和安全门禁，探索如何把提示词从一句指令变成可审计、可扩展的交互规则。</p>
+            <div class="chips"><span class="chip">Prompt / Agent Design</span><span class="chip">State Machine</span><span class="chip">Safety Rules</span><span class="chip">Structured Output</span></div>
+            <div class="project-links"><a href="https://github.com/WJSGZZ/MayoSocratic" target="_blank" rel="noreferrer">Repository ↗</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head"><div class="section-index">03 · About</div><div><h2>计算机背景，但兴趣更靠近应用与产品。</h2><p class="section-sub">我希望继续理解软件工程，也希望把 AI、信息架构和产品思维连接起来，做出普通用户真正能理解和使用的东西。</p></div></div>
+        <div class="about-grid">
+          <div class="card"><div class="card-label">Education</div><div class="school">Nantong University</div><div class="meta">B.E. Computer Science and Technology · 2023–2027 (Expected)</div><div class="rule"></div><div class="mini-grid"><div class="mini"><strong>IELTS 6.5</strong><span>Reading 8.0</span></div><div class="mini"><strong>Scholarship</strong><span>Freshman Year</span></div></div></div>
+          <div class="card"><div class="card-label">Working With</div><div class="skills"><span class="skill">Python</span><span class="skill">JavaScript</span><span class="skill">HTML / CSS</span><span class="skill">Git</span><span class="skill">AI Coding Tools</span><span class="skill">Prompt Design</span><span class="skill">Information Architecture</span><span class="skill">Rapid Prototyping</span></div><p class="note">这里没有把所有接触过的工具都列出来。比起“会多少工具”，我更希望作品本身说明我能把什么做出来。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="contact"><div class="section-index" style="padding:0 0 16px">04 · Contact</div><h2>如果你想进一步了解我，可以从作品开始。</h2><p>代码、版本记录和项目文档比一段自我评价更具体。当前主页暂不公开手机号等个人信息。</p><div class="cta"><a class="btn primary" href="https://github.com/WJSGZZ" target="_blank" rel="noreferrer">Visit GitHub ↗</a></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><span>© 2026 Xik Pai</span><span>Built as a lightweight static portfolio.</span></div></footer>
+</body>
+</html>
